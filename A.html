@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Love You</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(to bottom, #fff1f2, #ffe4e6, #fce7f3);
+      overflow: hidden;
+      font-family: "Comic Sans MS", "Segoe UI", sans-serif;
+    }
+    h1 {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: bold;
+      background: linear-gradient(90deg, #ef5da8, #ff7ab6, #ff9ac2, #ef5da8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      animation: floatText 3s ease-in-out infinite;
+    }
+    p {
+      margin-top: 8px;
+      text-align: center;
+      color: rgba(244, 63, 94, 0.8);
+      font-size: 0.9rem;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      color: hsl(340, 80%, 75%);
+      font-size: 16px;
+      opacity: 0.7;
+      animation: floatUp linear infinite;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.1));
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0; }
+      10% { opacity: 1; }
+      50% { transform: translateY(-50vh) scale(1.1); }
+      100% { transform: translateY(-110vh) scale(1.2); opacity: 0; }
+    }
+
+    @keyframes floatText {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1>I Love You Aanchal</h1>
+    <p>(made with tons of 💖 just for you)</p>
+  </div>
+
+  <script>
+    const heartCount = 70;
+    for (let i = 0; i < heartCount; i++) {
+      const heart = document.createElement("span");
+      heart.className = "heart";
+      heart.innerText = "♥";
+
+      const size = Math.random() * 18 + 8; // 8-26px
+      heart.style.fontSize = size + "px";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 12 + 10) + "s";
+      heart.style.animationDelay = Math.random() * 8 + "s";
+      heart.style.color = `hsl(${330 + Math.random()*30}, ${70+Math.random()*30}%, ${70+Math.random()*20}%)`;
+      document.body.appendChild(heart);
+    }
+  </script>
+</body>
+</html>
